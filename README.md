@@ -1,5 +1,5 @@
 # DigiPico
-Analysis Scripts for DigiPico Sequencing Data
+Analysis Scripts for DigiPico Sequencing Data (https://elifesciences.org/articles/55207)
 
 ## MutLX
 MutLX tool for accurate identification of true islet specific variants from DigiPico data. 
