@@ -6,7 +6,7 @@
     "pscore_cf": 0.2,
     "auc_cf": 0.9,
     "tpr_cf": 0.95,
-    "input_path": "data/test1.csv",
-    "out_path": "test1_Results",
+    "input_path": "../data/test1.csv",
+    "out_path": "../results/test1_Results",
     "sample_name": "DigiPico_test1"
 }
