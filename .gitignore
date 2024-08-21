@@ -1,11 +1,11 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
-.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
 
 # HPC scripts
 .scripts/
 MutLX/.ipynb_checkpoints
-data/
+*/data/*
 
 # VS Code
 .vscode/
