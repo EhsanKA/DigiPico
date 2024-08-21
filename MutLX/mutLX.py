@@ -15,6 +15,8 @@ import random as rn
 import matplotlib.pyplot as plt
 import argparse
 from scipy import stats
+import json
+import os
 import utils_mutLX
 
 # Remove unused imports
@@ -41,15 +43,27 @@ if __name__ == "__main__":
     parser.add_argument('--epochs', type=int, required=False, default=10, help='The number of epochs to train.')
     parser.add_argument('--sampling_num', type=int, required=False, default=25, help='The number of subsets.')
     parser.add_argument('--drop_it', type=int, required=False, default=100, help='The number of predictions sampled by dropping neurons.')
-    parser.add_argument('--pscore_cf', type=int, required=False, default=0.2, help='Cutoff value for probability scores.')
-    parser.add_argument('--auc_cf', type=int, required=False, default=0.9, help='Cutoff value for AUC to identify samples with true UTDs.')
-    parser.add_argument('--tpr_cf', type=int, required=False, default=0.95, help='The required true positive rate for recovery of true UTDs.')
+    parser.add_argument('--pscore_cf', type=float, required=False, default=0.2, help='Cutoff value for probability scores.')
+    parser.add_argument('--auc_cf', type=float, required=False, default=0.9, help='Cutoff value for AUC to identify samples with true UTDs.')
+    parser.add_argument('--tpr_cf', type=float, required=False, default=0.95, help='The required true positive rate for recovery of true UTDs.')
     parser.add_argument('--input_path', type=str, required=True, help='Path to CSV file.')
     parser.add_argument('--out_path', type=str, required=False, default='.', help='The path under which to store the output.')
-    parser.add_argument('--sample_name', type=str, required=False, default='DigiPico', help='The name of sample.')
+    parser.add_argument('--sample_name', type=str, required=False, default='DigiPico', help='The name of the sample.')
+    parser.add_argument('--config_file', type=str, required=False, help='Path to the JSON configuration file.')
+
     # Parse command line arguments    
     args = parser.parse_args()
 
+    if args.config_file and os.path.exists(args.config_file):
+        with open(args.config_file, 'r') as file:
+            file_params = json.load(file)
+
+        # Override command line arguments with those from the config file
+        for key, value in file_params.items():
+            if hasattr(args, key):
+                setattr(args, key, value)
+
+                
     # Load data and normalize
     all_set, test_ind, neg_ind, pos_ind, hpos_ind, names = utils_mutLX.prep_typebased(args.input_path, cols)
 

@@ -5,6 +5,7 @@ __pycache__/
 # HPC scripts
 .scripts/
 MutLX/.ipynb_checkpoints
+data/
 
 # VS Code
 .vscode/
@@ -21,3 +22,4 @@ venv/
 # Backup files
 *.bak
 *.swp
+data/test1.csv
