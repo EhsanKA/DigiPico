@@ -1,0 +1,24 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# HPC scripts
+.scripts/
+
+
+# VS Code
+.vscode/
+
+# Environments
+.env
+.venv/
+env/
+venv/
+
+# macOS
+.DS_Store
+
+# Backup files
+*.bak
+*.swp
