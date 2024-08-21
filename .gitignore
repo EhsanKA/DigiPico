@@ -5,7 +5,7 @@ __pycache__/
 
 # HPC scripts
 .scripts/
-
+MutLX/.ipynb_checkpoints
 
 # VS Code
 .vscode/
